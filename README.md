@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Brief
 
 Your challenge is to build out this dictionary web app using the [Dictionary API](https://dictionaryapi.dev/) and get it looking as close to the design as possible.
@@ -15,3 +16,7 @@ Your users should be able to:
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 - **Bonus**: Have the correct color scheme chosen for them based on their computer preferences. Hint: Research prefers-color-scheme in CSS.
+=======
+https://relaxed-stardust-ba00fa.netlify.app/
+# dictionary_web_app
+>>>>>>> 5728850b2f9ea5e7c6e86b8a956378fe38efba49
