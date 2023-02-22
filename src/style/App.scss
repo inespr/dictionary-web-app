@@ -13,8 +13,12 @@ $--purple: hsl(274, 82%, 60%);
 
 $--red: hsl(0, 100%, 66%);
 
+$--sans-serif: "Inter", sans-serif;
+$--serif: "Lora", serif;
+$--mono: "Inconsolata", monospace;
+
 * {
-  font-family: sans-serif;
+  font-family: $--sans-serif;
 }
 
 .dictionary {
@@ -26,17 +30,17 @@ $--red: hsl(0, 100%, 66%);
 
 [font="Sans-serif"]{
   *:not(.--active a){
-    font-family:sans-serif;
+    font-family:$--sans-serif;
   }
 }
 [font="Serif"]{
   *:not(.--active a){
-    font-family:serif;
+    font-family:$--serif;
   }
 }
 [font="Mono"]{
   *:not(.--active a){
-    font-family: 'mono';
+    font-family:$--mono;
   }
 }
 
@@ -151,10 +155,10 @@ $--red: hsl(0, 100%, 66%);
   }
 
   a.serif {
-    font-family: serif;
+    font-family: $--serif;
   }
   a.mono {
-    font-family: "mono";
+    font-family: $--mono;
   }
 }
 
