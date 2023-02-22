@@ -13,13 +13,16 @@ function App() {
 
   function FontMenuShow() {
     const menu = document.getElementById('menu')
+    const arrow = document.getElementById('arrow')
     if(menu.classList == 'menu --active'){
       menu.classList.remove('--active')
+      arrow.classList.remove('arrow--active')
       setMenu('false')
     }
     else{
       setMenu('true')
       menu.classList.add("--active");
+      arrow.classList.add("arrow--active")
     }
   }
 
@@ -38,7 +41,7 @@ function App() {
           <div className="font_selector">
             <button className="selector" onClick={FontMenuShow}>
               Serif
-              <img src={arrowdown} />
+              <img id='arrow' src={arrowdown} />
             </button>
           </div>
 
