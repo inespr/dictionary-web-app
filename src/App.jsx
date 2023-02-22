@@ -10,6 +10,7 @@ function App() {
   const [font, setFont] = useState();
   //Estado del menu activo = true | inactivo = false
   const [menu, setMenu] = useState('false');
+  const [tema, setTema] = useState('light');
 
   function FontMenuShow() {
     const menu = document.getElementById('menu')
@@ -30,10 +31,19 @@ function App() {
 
   }
 
+  function ChangeLightSelector(){
+    if(tema == 'light' ){
+      setTema('dark')
+      document.documentElement.setAttribute('tema', 'dark');
+    }else{
+      setTema('light')
+      document.documentElement.setAttribute('tema', 'light');
+    }
+  }
 
 
   return (
-    <div className="dictionary">
+    <div className="dictionary" >
       <section className="nav">
         <img src={dictionarylogo} alt="Dictionary Logo" />
         {/*Selector de fuente*/}
@@ -48,7 +58,7 @@ function App() {
           {/*Barra separadora */}
           {/*Selector de modo oscuro*/}
           <div className="light_selector">
-            <button className="selector" />
+            <button className="selector" onClick={ChangeLightSelector}/>
             <img src={moon} alt="Moon" />
           </div>
         </div>
@@ -63,7 +73,7 @@ function App() {
 
       <section className="form">
         <img src={search} alt="Search" className="input-icon"></img>
-        <input className="input" type="text" name="input" value=""></input>
+        <input className="input" type="text" name="input" ></input>
       </section>
       <section className="result">
         <div className="first__result">

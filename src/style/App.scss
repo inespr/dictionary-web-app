@@ -18,9 +18,40 @@ $--red: hsl(0, 100%, 66%);
 }
 
 .dictionary{
+  min-width: 374px;
   max-width: 374px;
   margin: 0 auto;
   padding: 24px;
+}
+
+[tema="ligth"]{
+  body{
+      background-color: $--white;
+  }
+  .selector, .menu a, .input, h1, .type p{
+    color: $--back-1;
+  }
+  .light_selector .selector{
+    background-color: $--gray-1;
+  }
+}
+
+[tema="dark"]{
+  body{
+      background-color: $--back-1;
+  }
+  .selector, .menu a, h1, .input, .type p{
+    color: $--white;
+  }
+  .nav .light_selector .selector{
+    background-color: $--purple;
+  }
+  .input, .menu{
+    background-color: $--back-3;
+  }
+  .--active{
+    box-shadow: $--purple 0px 2px 4px 0px, $--purple 0px 2px 16px 0px;  
+  }
 }
 
 .nav{
@@ -42,6 +73,7 @@ $--red: hsl(0, 100%, 66%);
       border: none;
       background-color:transparent;
       gap: 10px;
+      font-weight: bolder;
     }
     
   }
@@ -59,9 +91,6 @@ $--red: hsl(0, 100%, 66%);
       display: flex;
     }
     
-    input{
-      cursor: pointer;
-    }
     .selector{
       width: 40px;
       border-radius: 15px;
@@ -87,6 +116,7 @@ $--red: hsl(0, 100%, 66%);
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  top: -15px;
 }
 
 .menu{
@@ -150,4 +180,11 @@ $--red: hsl(0, 100%, 66%);
   padding: 15px;
   border-radius: 15px;
   background-color: $--gray-2;
+  font-weight: bolder;
+}
+
+
+//Wordtypes
+.type p{
+  font-weight: bolder;
 }
