@@ -1,15 +1,14 @@
-import dictionarylogo from "./assets/logo.svg";
-import moon from "./assets/icon-moon.svg";
-import newwindow from "./assets/icon-new-window.svg";
-import play from "./assets/icon-play.svg";
-import arrowdown from "./assets/icon-arrow-down.svg";
-import search from "./assets/icon-search.svg";
+import dictionarylogo from "../assets/logo.svg";
+import moon from "../assets/icon-moon.svg";
+import newwindow from "../assets/icon-new-window.svg";
+import play from "../assets/icon-play.svg";
+import arrowdown from "../assets/icon-arrow-down.svg";
+import search from "../assets/icon-search.svg";
 import { useState } from "react";
 
 function App() {
-  const [font, setFont] = useState();
+  const [font, setFont] = useState('Sans-serif');
   //Estado del menu activo = true | inactivo = false
-  const [menu, setMenu] = useState('false');
   const [tema, setTema] = useState('light');
 
   function FontMenuShow() {
@@ -18,16 +17,25 @@ function App() {
     if(menu.classList == 'menu --active'){
       menu.classList.remove('--active')
       arrow.classList.remove('arrow--active')
-      setMenu('false')
     }
     else{
-      setMenu('true')
       menu.classList.add("--active");
       arrow.classList.add("arrow--active")
     }
   }
 
-  function SelectFont(){
+  function SelectFont(evento){
+    const typefont = evento.target.id;
+    setFont(typefont);
+    console.log(typefont)
+    if(typefont == 'Sans-serif'){
+      document.documentElement.setAttribute('font', 'Sans-serif');
+    }else if(typefont == 'Serif'){
+      document.documentElement.setAttribute('font', 'Serif');
+    }
+    else{
+      document.documentElement.setAttribute('font', 'Mono');
+    }
 
   }
 
@@ -39,6 +47,7 @@ function App() {
       setTema('light')
       document.documentElement.setAttribute('tema', 'light');
     }
+    console.log(tema)
   }
 
 
@@ -50,7 +59,7 @@ function App() {
         <div className="selection__nav">
           <div className="font_selector">
             <button className="selector" onClick={FontMenuShow}>
-              Serif
+              {font}
               <img id='arrow' src={arrowdown} />
             </button>
           </div>
@@ -65,9 +74,9 @@ function App() {
       </section>
       <section className="menufont">
         <div className="menu" id="menu">
-          <a className="sans-serif" onClick={(evento) => SelectFont(evento)}>Sans Serif</a>
-          <a className="serif" onClick={(evento) => SelectFont(evento)}>Serif</a>
-          <a className="mono" onClick={(evento) => SelectFont(evento)}>Mono</a>
+          <a className="sans-serif" id='Sans-serif'onClick={(evento) => SelectFont(evento)}>Sans-serif</a>
+          <a className="serif" id='Serif'onClick={(evento) => SelectFont(evento)}>Serif</a>
+          <a className="mono" id='Mono'onClick={(evento) => SelectFont(evento)}>Mono</a>
         </div>
       </section>
 

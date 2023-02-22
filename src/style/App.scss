@@ -13,91 +13,102 @@ $--purple: hsl(274, 82%, 60%);
 
 $--red: hsl(0, 100%, 66%);
 
-*{
+* {
   font-family: sans-serif;
 }
 
-.dictionary{
+.dictionary {
   min-width: 374px;
   max-width: 374px;
   margin: 0 auto;
   padding: 24px;
 }
 
-[tema="ligth"]{
-  body{
-      background-color: $--white;
+[font="Sans-serif"]{
+  *:not(.--active a){
+    font-family:sans-serif;
   }
-  .selector, .menu a, .input, h1, .type p{
-    color: $--back-1;
+}
+[font="Serif"]{
+  *:not(.--active a){
+    font-family:serif;
   }
-  .light_selector .selector{
-    background-color: $--gray-1;
+}
+[font="Mono"]{
+  *:not(.--active a){
+    font-family: 'mono';
   }
 }
 
-[tema="dark"]{
-  body{
-      background-color: $--back-1;
+[tema="dark"] {
+  body {
+    background-color: $--back-1;
   }
-  .selector, .menu a, h1, .input, .type p{
+  .selector,
+  .menu a,
+  h1,
+  .input,
+  .type p {
     color: $--white;
   }
-  .nav .light_selector .selector{
+  .nav .light_selector .selector {
     background-color: $--purple;
   }
-  .input, .menu{
+  .input,
+  .menu {
     background-color: $--back-3;
   }
-  .--active{
-    box-shadow: $--purple 0px 2px 4px 0px, $--purple 0px 2px 16px 0px;  
+  .--active {
+    box-shadow: $--purple 0px 2px 4px 0px, $--purple 0px 2px 16px 0px;
+  }
+  button.selector {
+    justify-content: flex-end;
   }
 }
 
-.nav{
+.nav {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  .selection__nav{
+  .selection__nav {
     display: flex;
     flex-wrap: wrap;
     gap: 18px;
- 
   }
   margin-bottom: 23px;
-  .font_selector{
-    .selector{
+  .font_selector {
+    .selector {
       display: flex;
       align-items: center;
       border: none;
-      background-color:transparent;
+      background-color: transparent;
       gap: 10px;
       font-weight: bolder;
     }
-    
   }
-  
-  .light_selector{
+
+  .light_selector {
     display: flex;
     align-items: center;
     align-items: stretch;
     gap: 18px;
-    &::before{
-      content: '';
+    &::before {
+      content: "";
       position: relative;
       background-color: $--gray-1;
       width: 1px;
       display: flex;
     }
-    
-    .selector{
+
+    .selector {
       width: 40px;
+      display: flex;
       border-radius: 15px;
       border: none;
       background-color: $--gray-1;
-      &::before{
-        content: '';
+      &::before {
+        content: "";
         background-color: $--white;
         height: 12px;
         width: 12px;
@@ -108,10 +119,9 @@ $--red: hsl(0, 100%, 66%);
       }
     }
   }
-  
 }
 
-.menufont{
+.menufont {
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -119,11 +129,11 @@ $--red: hsl(0, 100%, 66%);
   top: -15px;
 }
 
-.menu{
+.menu {
   display: none;
 }
 
-.--active{
+.--active {
   display: flex;
   position: absolute;
   flex-direction: column;
@@ -133,46 +143,40 @@ $--red: hsl(0, 100%, 66%);
   width: 100px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  a{
-    font-weight: 500;
-    &:active{
+  a {
+    font-weight: bolder;
+    &:active {
       color: $--purple;
     }
-    &--active{
+  }
 
-    }
+  a.serif {
+    font-family: serif;
   }
-  a.sans-serif{
-  
-  }
-  a.serif{
-    font-family: serif ;
-  }
-  a.mono{
-    font-family: 'mono' ;
+  a.mono {
+    font-family: "mono";
   }
 }
 
-.arrow--active{
+.arrow--active {
   rotate: 180deg;
 }
 
-
-.form{
+.form {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  
+
   justify-content: flex-end;
 }
 
-.input-icon{
+.input-icon {
   position: absolute;
   top: 109px;
   margin-right: 12px;
 }
 
-.input{
+.input {
   display: flex;
   width: 100%;
   font-size: 18px;
@@ -183,8 +187,7 @@ $--red: hsl(0, 100%, 66%);
   font-weight: bolder;
 }
 
-
 //Wordtypes
-.type p{
+.type p {
   font-weight: bolder;
 }
