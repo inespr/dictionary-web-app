@@ -8,21 +8,40 @@ import { useState } from "react";
 
 function App() {
   const [font, setFont] = useState();
+  //Estado del menu activo = true | inactivo = false
+  const [menu, setMenu] = useState('false');
 
-  function FontMenu() {
-    setFont();
+  function FontMenuShow() {
+    const menu = document.getElementById('menu')
+    if(menu.classList == 'menu --active'){
+      menu.classList.remove('--active')
+      setMenu('false')
+    }
+    else{
+      setMenu('true')
+      menu.classList.add("--active");
+    }
   }
+
+  function SelectFont(){
+
+  }
+
+
 
   return (
     <div className="dictionary">
       <section className="nav">
         <img src={dictionarylogo} alt="Dictionary Logo" />
         {/*Selector de fuente*/}
-        <div className="selection__nav" onClick={FontMenu}>
-          <button className="font_selector">
-            Serif
-            <img src={arrowdown} />
-          </button>
+        <div className="selection__nav">
+          <div className="font_selector">
+            <button className="selector" onClick={FontMenuShow}>
+              Serif
+              <img src={arrowdown} />
+            </button>
+          </div>
+
           {/*Barra separadora */}
           {/*Selector de modo oscuro*/}
           <div className="light_selector">
@@ -31,6 +50,14 @@ function App() {
           </div>
         </div>
       </section>
+      <section className="menufont">
+        <div className="menu" id="menu">
+          <a className="sans-serif" onClick={(evento) => SelectFont(evento)}>Sans Serif</a>
+          <a className="serif" onClick={(evento) => SelectFont(evento)}>Serif</a>
+          <a className="mono" onClick={(evento) => SelectFont(evento)}>Mono</a>
+        </div>
+      </section>
+
       <section className="form">
         <img src={search} alt="Search" className="input-icon"></img>
         <input className="input" type="text" name="input" value=""></input>

@@ -13,6 +13,10 @@ $--purple: hsl(274, 82%, 60%);
 
 $--red: hsl(0, 100%, 66%);
 
+*{
+  font-family: sans-serif;
+}
+
 .dictionary{
   max-width: 374px;
   margin: 0 auto;
@@ -32,12 +36,16 @@ $--red: hsl(0, 100%, 66%);
   }
   margin-bottom: 23px;
   .font_selector{
-    display: flex;
-    align-items: center;
-    border: none;
-    background-color:transparent;
-    gap: 10px;
+    .selector{
+      display: flex;
+      align-items: center;
+      border: none;
+      background-color:transparent;
+      gap: 10px;
+    }
+    
   }
+  
   .light_selector{
     display: flex;
     align-items: center;
@@ -61,7 +69,7 @@ $--red: hsl(0, 100%, 66%);
       background-color: $--gray-1;
       &::before{
         content: '';
-        background-color: rgb(255, 255, 255);
+        background-color: $--white;
         height: 12px;
         width: 12px;
         position: absolute;
@@ -73,6 +81,52 @@ $--red: hsl(0, 100%, 66%);
   }
   
 }
+
+.menufont{
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.menu{
+  display: none;
+  
+ 
+}
+
+.--active{
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  background-color: $--white;
+  padding: 20px 30px;
+  gap: 20px;
+  width: 100px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  a{
+    font-weight: 500;
+    &:active{
+      color: $--purple;
+    }
+    &--active{
+
+    }
+  }
+  a.sans-serif{
+  
+  }
+  a.serif{
+    font-family: serif ;
+  }
+  a.mono{
+    font-family: 'mono' ;
+  }
+}
+
+
+
 
 .form{
   display: flex;
