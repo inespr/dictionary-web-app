@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      includeAssets: ["MicrosoftTeams-image.png"],
+      includeAssets: ["dictionary.png"],
       manifest: {
         name: "Dictionary_web_api",
         short_name: "Dictionary",
@@ -15,12 +15,12 @@ export default defineConfig({
         theme_color: "#ffffff",
         icons: [
           {
-            src: "MicrosoftTeams-image.png",
+            src: "dictionary.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "MicrosoftTeams-image.png",
+            src: "dictionary.png",
             sizes: "512x512",
             type: "image/png",
           },
