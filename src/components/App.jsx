@@ -1,9 +1,9 @@
-import dictionarylogo from "../assets/logo.svg";
-import moon from "../assets/icon-moon.svg";
-import newwindow from "../assets/icon-new-window.svg";
-import play from "../assets/icon-play.svg";
-import arrowdown from "../assets/icon-arrow-down.svg";
-import search from "../assets/icon-search.svg";
+import { ReactComponent as Dictionarylogo } from "../assets/logo.svg";
+import { ReactComponent as Moon } from "../assets/icon-moon.svg";
+import {ReactComponent as Newwindow } from "../assets/icon-new-window.svg";
+import {ReactComponent as Play } from "../assets/icon-play.svg";
+import { ReactComponent as Arrowdown } from "../assets/icon-arrow-down.svg";
+import { ReactComponent as Search } from "../assets/icon-search.svg";
 import { useState } from "react";
 
 function App() {
@@ -67,17 +67,17 @@ function App() {
   return (
     <div className="dictionary" >
       <section className="nav">
-        <img src={dictionarylogo} alt="Dictionary Logo" />
+        <Dictionarylogo alt="Dictionary Logo" />
         <div className="selection__nav">
           <div className="font_selector">
             <button className="selector" onClick={FontMenuShow}>
               {font}
-              <img id='arrow' src={arrowdown} />
+              <Arrowdown id='arrow'/>
             </button>
           </div>
           <div className="light_selector">
             <button className="selector" onClick={ChangeLightSelector}/>
-            <img src={moon} alt="Moon" className="moon"/>
+            <Moon alt="Moon" className="moon"/>
           </div>
         </div>
       </section>
@@ -92,7 +92,7 @@ function App() {
 
       <section className="form" >
         <form onSubmit={CallAPI}>
-          <img src={search} alt="Search" className="input-icon"></img>
+          <Search alt="Search" className="input-icon"/>
           <input className="input" type="text" name="input" id="input"></input>
         </form>
       </section>
@@ -100,7 +100,7 @@ function App() {
         <div className="first__result">
           <h1>{/*PALABRA*/}</h1>
           <p>{/*Fonetica */}</p>
-          <img src={play} />
+          <Play/>
           {/*Reproductor de audio */}
         </div>
         <div className="types__result">
@@ -111,7 +111,7 @@ function App() {
         <p>Source</p>
         <div className="link">
           <p>{/*Añadir sourceURLs */}</p>
-          <img src={newwindow} alt="New window" />
+          <Newwindow alt="New window" />
         </div>
       </section>
     </div>
