@@ -36,26 +36,38 @@ function App() {
     else{
       document.documentElement.setAttribute('font', 'Mono');
     }
-
   }
 
   function ChangeLightSelector(){
-    if(tema == 'light' ){
-      setTema('dark')
-      document.documentElement.setAttribute('tema', 'dark');
-    }else{
-      setTema('light')
-      document.documentElement.setAttribute('tema', 'light');
-    }
+    setTema(tema === 'light' ? 'dark' : 'light')
+    document.documentElement.setAttribute('tema', tema === 'light' ? 'dark' : 'light');
+
     console.log(tema)
   }
 
+  function CallAPI(event){
+    event.preventDefault();
+    const word = event.target.input.value;
+    console.log(word);
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+        .then((res) => res.json())
+        //get data
+        .then((data) => {
+          //comprobar si existe la palabra
+          console.log("Data URL: ", data);
+          //save data into an objet
+          saveData(data)
+        });
+  }
+
+  function saveData(data) {
+    
+  }
 
   return (
     <div className="dictionary" >
       <section className="nav">
         <img src={dictionarylogo} alt="Dictionary Logo" />
-        {/*Selector de fuente*/}
         <div className="selection__nav">
           <div className="font_selector">
             <button className="selector" onClick={FontMenuShow}>
@@ -63,15 +75,13 @@ function App() {
               <img id='arrow' src={arrowdown} />
             </button>
           </div>
-
-          {/*Barra separadora */}
-          {/*Selector de modo oscuro*/}
           <div className="light_selector">
             <button className="selector" onClick={ChangeLightSelector}/>
-            <img src={moon} alt="Moon" />
+            <img src={moon} alt="Moon" className="moon"/>
           </div>
         </div>
       </section>
+
       <section className="menufont">
         <div className="menu" id="menu">
           <a className="sans-serif" id='Sans-serif'onClick={(evento) => SelectFont(evento)}>Sans-serif</a>
@@ -80,9 +90,11 @@ function App() {
         </div>
       </section>
 
-      <section className="form">
-        <img src={search} alt="Search" className="input-icon"></img>
-        <input className="input" type="text" name="input" ></input>
+      <section className="form" >
+        <form onSubmit={CallAPI}>
+          <img src={search} alt="Search" className="input-icon"></img>
+          <input className="input" type="text" name="input" id="input"></input>
+        </form>
       </section>
       <section className="result">
         <div className="first__result">
