@@ -68,6 +68,9 @@ $--mono: "Inconsolata", monospace;
   button.selector {
     justify-content: flex-end;
   }
+  .moon{
+    stroke: $--purple
+  }
 }
 
 .nav {
@@ -122,6 +125,9 @@ $--mono: "Inconsolata", monospace;
         border: none;
       }
     }
+    .moon{
+      stroke: #757575;
+    }
   }
 }
 
@@ -172,6 +178,12 @@ $--mono: "Inconsolata", monospace;
   flex-wrap: wrap;
 
   justify-content: flex-end;
+}
+
+form{
+  display: flex;
+  justify-content: flex-end;
+  flex: 1 0 100%;
 }
 
 .input-icon {
