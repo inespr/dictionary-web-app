@@ -1,15 +1,16 @@
 import { ReactComponent as Dictionarylogo } from "../assets/logo.svg";
 import { ReactComponent as Moon } from "../assets/icon-moon.svg";
-import {ReactComponent as Newwindow } from "../assets/icon-new-window.svg";
-import {ReactComponent as Play } from "../assets/icon-play.svg";
 import { ReactComponent as Arrowdown } from "../assets/icon-arrow-down.svg";
 import { ReactComponent as Search } from "../assets/icon-search.svg";
+import { WordTypes } from "./WordTypes.jsx";
 import { useState } from "react";
 
 function App() {
   const [font, setFont] = useState('Sans-serif');
   //Estado del menu activo = true | inactivo = false
   const [tema, setTema] = useState('light');
+  const [data, setData] = useState([])
+
 
   function FontMenuShow() {
     const menu = document.getElementById('menu')
@@ -41,7 +42,6 @@ function App() {
   function ChangeLightSelector(){
     setTema(tema === 'light' ? 'dark' : 'light')
     document.documentElement.setAttribute('tema', tema === 'light' ? 'dark' : 'light');
-
     console.log(tema)
   }
 
@@ -56,12 +56,14 @@ function App() {
           //comprobar si existe la palabra
           console.log("Data URL: ", data);
           //save data into an objet
-          saveData(data)
+          showData(data)
+          setData(data);
         });
   }
 
-  function saveData(data) {
-    
+  function showData(data) {
+   
+     
   }
 
   return (
@@ -81,7 +83,6 @@ function App() {
           </div>
         </div>
       </section>
-
       <section className="menufont">
         <div className="menu" id="menu">
           <a className="sans-serif" id='Sans-serif'onClick={(evento) => SelectFont(evento)}>Sans-serif</a>
@@ -89,31 +90,53 @@ function App() {
           <a className="mono" id='Mono'onClick={(evento) => SelectFont(evento)}>Mono</a>
         </div>
       </section>
-
       <section className="form" >
         <form onSubmit={CallAPI}>
           <Search alt="Search" className="input-icon"/>
-          <input className="input" type="text" name="input" id="input"></input>
+          <input className="input" type="text" name="input" id="input" placeholder="Search for any word..."></input>
         </form>
       </section>
       <section className="result">
-        <div className="first__result">
-          <h1>{/*PALABRA*/}</h1>
-          <p>{/*Fonetica */}</p>
-          <Play/>
-          {/*Reproductor de audio */}
-        </div>
         <div className="types__result">
           {/*Todas las clases de una palabra COMPONENTE*/}
         </div>
       </section>
-      <section className="footer">
-        <p>Source</p>
-        <div className="link">
-          <p>{/*Añadir sourceURLs */}</p>
-          <Newwindow alt="New window" />
-        </div>
+      <section className="data">
+      {data &&
+          data.map((element, index) => {
+            var texto = '';
+            var audio = '';
+            var partOfSpeech = [];
+            var definition = '';
+            {element.phonetics.forEach(element => {
+              if(element.text && element.audio){
+                texto = element.text;
+                audio = element.audio;
+                console.log('text and audio',element.text, element.audio)
+              }  
+            })}
+            {element.meanings.forEach(element => {
+              partOfSpeech.push(element.partOfSpeech);
+              element.definitions.forEach(element =>{
+                definition=element.definition})
+              
+            })}
+            console.log(partOfSpeech)
+            return (
+              <WordTypes
+                key={index}
+                word={element.word}
+                phoneticsText={texto}
+                phoneticsAudio={audio}
+                partOfSpeech = {partOfSpeech}
+                definitions ={definition}
+              />
+            );
+        })
+       }
+       
       </section>
+     
     </div>
   );
 }
