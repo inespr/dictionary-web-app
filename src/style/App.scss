@@ -19,10 +19,13 @@ $--mono: "Inconsolata", monospace;
 
 * {
   font-family: $--sans-serif;
+  p{
+    color: $--gray-1;
+  }
 }
 
 .dictionary {
-  min-width: 374px;
+  min-width: 274px;
   max-width: 374px;
   margin: 0 auto;
   padding: 24px;
@@ -125,12 +128,11 @@ $--mono: "Inconsolata", monospace;
         border: none;
       }
     }
-    .moon{
-      stroke: #757575;
-    }
   }
 }
-
+.moon{
+  stroke: #757575;
+}
 .menufont {
   position: relative;
   display: flex;
