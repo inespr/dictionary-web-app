@@ -63,7 +63,6 @@ function App() {
 
   function showData(data) {
    
-     
   }
 
   return (
@@ -106,8 +105,10 @@ function App() {
           data.map((element, index) => {
             var texto = '';
             var audio = '';
-            var partOfSpeech = [];
-            var definition = '';
+            var meanings = '';
+            var partofspeech = '';
+            var definitions = '';
+            console.log('element meaning',element.meanings)
             {element.phonetics.forEach(element => {
               if(element.text && element.audio){
                 texto = element.text;
@@ -115,25 +116,20 @@ function App() {
                 console.log('text and audio',element.text, element.audio)
               }  
             })}
-            {element.meanings.forEach(element => {
-              partOfSpeech.push(element.partOfSpeech);
-              element.definitions.forEach(element =>{
-                definition=element.definition})
-              
-            })}
-            console.log(partOfSpeech)
+            
+
             return (
               <WordTypes
                 key={index}
                 word={element.word}
                 phoneticsText={texto}
                 phoneticsAudio={audio}
-                partOfSpeech = {partOfSpeech}
-                definitions ={definition}
+                partOfSpeech = {partofspeech}
+                meanings = {element.meanings}
               />
             );
         })
-       }
+      }
        
       </section>
      

@@ -206,6 +206,16 @@ form{
 }
 
 //Wordtypes
-.type p {
+.type{
   font-weight: bolder;
+  color: $--back-1;
+  font-size: 18px;
+}
+.meaning{
+  color: $--back-4;
+}
+ul{
+  display: flex;
+  flex-direction: column;
+  padding-inline-start: 15px;
 }
