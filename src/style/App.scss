@@ -206,16 +206,77 @@ form{
 }
 
 //Wordtypes
+.first__result{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.word{
+  font-size: 45px;
+  display: flex;
+}
+
+.phonetics{
+  margin-top: -24px;
+  font-size: 20px;
+  color: $--purple;
+}
+
+.word_phonetics{
+  display: flex;
+  flex-direction: column;
+}
+
 .type{
   font-weight: bolder;
   color: $--back-1;
   font-size: 18px;
+  font-style: italic;
 }
 .meaning{
   color: $--back-4;
 }
+
+.meanings__tittle{
+  margin-bottom: -12px;
+}
+
 ul{
   display: flex;
   flex-direction: column;
-  padding-inline-start: 15px;
+  padding-inline-start: 2px;
+}
+li{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 10px;
+}
+li::before{
+   /* Unicode for a bullet */
+   content: "\2022";
+              
+   /* Styles for Indentation*/
+   color: $--purple;
+}
+
+.meanings{
+  display: flex;
+  flex-direction: column;
+}
+
+.synonyms{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.synonyms{
+  display: flex;
+  gap: 10px;
+  color: $--purple;
+  font-weight: 700;
+  flex-wrap: wrap;
 }

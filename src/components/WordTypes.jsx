@@ -18,25 +18,27 @@ export function WordTypes({
   return (
     <div className="wordtypes">
       <div className="first__result">
-        <h1>{word}</h1>
-        <p>{phoneticsText}</p>
+        <div className="word_phonetics">
+          <h1 className="word">{word}</h1>
+          <p className="phonetics">{phoneticsText}</p>
+        </div>
         <audio id="audio" src={phoneticsAudio} controls=""></audio>
         <Play onClick={Audio} />
       </div>
-      {meanings.map((element, id) => {
+      {meanings.map((meanings, id) => {
         return (
           <>
-            <div key={id}>
-              <p className="type">{element.partOfSpeech}</p>
-              <p>Meanings</p>
+            <div key={id} className='meanings'>
+              <p className="type">{meanings.partOfSpeech}</p>
+              <p className="meanings__tittle">Meanings</p>
               <ul>
-                {element.definitions.map((element, i) => {
+                {meanings.definitions.map((definitions, key) => {
                   return (
                     <>
-                      <div key={i}>
+                      <div key={key}>
                         <li>
                           <p div className="meaning">
-                            {element.definition}
+                            {definitions.definition}
                           </p>
                         </li>
                       </div>
@@ -44,17 +46,19 @@ export function WordTypes({
                   );
                 })}
               </ul>
-
-              <p>Synonyms</p>
-              {element.synonyms.map((element, e) => {
-                return (
-                  <>
-                    <div key={e}>
-                      <span>{element}</span>
-                    </div>
-                  </>
-                );
-              })}
+              <div className="synonyms">
+                <p>Synonyms</p>
+                <div ></div>
+                {meanings.synonyms.map((synonyms, e) => {
+                  return (
+                    <>
+                      <div key={e}>
+                        <p className="synonyms">{synonyms}</p>
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
             </div>
           </>
         );
