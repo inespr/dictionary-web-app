@@ -1,34 +1,69 @@
 import { ReactComponent as Play } from "../assets/icon-play.svg";
 import { ReactComponent as Newwindow } from "../assets/icon-new-window.svg";
 
-export function WordTypes({word, phoneticsText, phoneticsAudio, partOfSpeech, definitions, sourceUrls}){
-  function Audio(){
-    if(phoneticsAudio){
-      document.getElementById('audio').play()
+export function WordTypes({
+  word,
+  phoneticsText,
+  meanings,
+  phoneticsAudio,
+  partOfSpeech,
+  definitions,
+  sourceUrls,
+}) {
+  function Audio() {
+    if (phoneticsAudio) {
+      document.getElementById("audio").play();
     }
   }
-  return(
+  return (
     <div className="wordtypes">
-        <div className="first__result">
-          <h1>{word}</h1>
-          <p>{phoneticsText}</p>
-          <audio id="audio" src={phoneticsAudio} controls=""></audio>
-          <Play onClick={Audio}/>
-          {/*Reproductor de audio */}
+      <div className="first__result">
+        <div className="word_phonetics">
+          <h1 className="word">{word}</h1>
+          <p className="phonetics">{phoneticsText}</p>
         </div>
-      {/*HAY VARIOS */}
-      <div className="type">
-       {/*Agrumar los partofspeech y meaning en componente */}
-        {partOfSpeech.toString()}
-        {console.log(partOfSpeech)}
-       
+        <audio id="audio" src={phoneticsAudio} controls=""></audio>
+        <Play onClick={Audio} />
       </div>
-      <div className="meaning">
-        <p>Meaning</p>
-       {definitions}
-      </div>
+      {meanings.map((meanings, id) => {
+        return (
+          <>
+            <div key={id} className='meanings'>
+              <p className="type">{meanings.partOfSpeech}</p>
+              <p className="meanings__tittle">Meanings</p>
+              <ul>
+                {meanings.definitions.map((definitions, key) => {
+                  return (
+                    <>
+                      <div key={key}>
+                        <li>
+                          <p div className="meaning">
+                            {definitions.definition}
+                          </p>
+                        </li>
+                      </div>
+                    </>
+                  );
+                })}
+              </ul>
+              <div className="synonyms">
+                <p>Synonyms</p>
+                <div ></div>
+                {meanings.synonyms.map((synonyms, e) => {
+                  return (
+                    <>
+                      <div key={e}>
+                        <p className="synonyms">{synonyms}</p>
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+          </>
+        );
+      })}
       <div className="synonyms">
-        <p>Synonyms</p>
         <p>{/*Añadir sinonimo SI ES QUE TIENE */}</p>
       </div>
       <section className="footer">
@@ -39,5 +74,5 @@ export function WordTypes({word, phoneticsText, phoneticsAudio, partOfSpeech, de
         </div>
       </section>
     </div>
-  )
+  );
 }
