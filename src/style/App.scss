@@ -62,7 +62,7 @@ $--mono: "Inconsolata", monospace;
     background-color: $--purple;
   }
   .input,
-  .menu {
+  .menu, .input--error {
     background-color: $--back-3;
   }
   .--active {
@@ -73,6 +73,9 @@ $--mono: "Inconsolata", monospace;
   }
   .moon{
     stroke: $--purple
+  }
+  .footer .link a{
+    color: $--white;
   }
 }
 
@@ -301,6 +304,20 @@ li::before{
   color: $--purple;
   font-weight: 700;
   flex-wrap: wrap;
+}
+
+.footer{
+  font-size: 12px;
+  display: flex;
+  gap: 10px;
+  .link{
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    a{
+      text-decoration:underline;
+    }
+  }
 }
 
 //maxwidth 736

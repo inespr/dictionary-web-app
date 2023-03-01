@@ -159,6 +159,7 @@ function App() {
                 phoneticsText={texto}
                 phoneticsAudio={audio}
                 meanings = {element.meanings}
+                sourceUrls = {element.sourceUrls}
               />
             );
         })

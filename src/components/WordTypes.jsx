@@ -45,17 +45,21 @@ export function WordTypes({
                 })}
               </ul>
               <div className="synonyms">
-                <p>Synonyms</p>
-                <div ></div>
-                {meanings.synonyms.map((synonyms, e) => {
-                  return (
-                    <>
-                      <div key={e}>
-                        <p className="synonyms">{synonyms}</p>
-                      </div>
-                    </>
-                  );
-                })}
+                {/*Hacer bien */}
+                {meanings.synonyms ? (
+                  <>
+                    <p>Synonyms</p>
+                    {meanings.synonyms.map((synonyms, e) => {
+                      return (
+                        <>
+                        <div key={e}>
+                            <p className="synonyms">{synonyms}</p>
+                          </div>
+                        </>
+                      )
+                    })}
+                  </>
+                ) : "" } 
               </div>
             </div>
           </>
@@ -64,7 +68,7 @@ export function WordTypes({
       <section className="footer">
         <p>Source</p>
         <div className="link">
-          <p>{/*Añadir sourceURLs */}</p>
+          <a>{sourceUrls}</a>
           <Newwindow alt="New window" />
         </div>
       </section>
