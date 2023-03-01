@@ -55,7 +55,7 @@ $--mono: "Inconsolata", monospace;
   .menu a,
   h1,
   .input,
-  .type p {
+  .type{
     color: $--white;
   }
   .nav .light_selector .selector {
@@ -203,6 +203,28 @@ form{
   border-radius: 15px;
   background-color: $--gray-2;
   font-weight: bolder;
+  &--error{
+    display: flex;
+    outline: none;
+    width: 100%;
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: $--gray-2;
+    font-weight: bolder;
+    border: 2px solid red;
+
+}
+}
+
+.inputError--none{
+  display: none;
+}
+
+.inputError{
+  color: red;
+  display: flex;
+  flex-direction: column;
 }
 
 //Wordtypes
@@ -255,10 +277,10 @@ li{
 }
 li::before{
    /* Unicode for a bullet */
-   content: "\2022";
+    content: "\2022";
               
-   /* Styles for Indentation*/
-   color: $--purple;
+    /* Styles for Indentation*/
+    color: $--purple;
 }
 
 .meanings{
@@ -280,3 +302,5 @@ li::before{
   font-weight: 700;
   flex-wrap: wrap;
 }
+
+//maxwidth 736

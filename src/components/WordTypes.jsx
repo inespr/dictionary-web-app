@@ -6,8 +6,6 @@ export function WordTypes({
   phoneticsText,
   meanings,
   phoneticsAudio,
-  partOfSpeech,
-  definitions,
   sourceUrls,
 }) {
   function Audio() {
@@ -63,9 +61,6 @@ export function WordTypes({
           </>
         );
       })}
-      <div className="synonyms">
-        <p>{/*Añadir sinonimo SI ES QUE TIENE */}</p>
-      </div>
       <section className="footer">
         <p>Source</p>
         <div className="link">
