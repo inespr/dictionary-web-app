@@ -121,6 +121,9 @@ $--mono: "Inconsolata", monospace;
       border-radius: 15px;
       border: none;
       background-color: $--gray-1;
+      &:hover{
+        cursor: pointer;
+      }
       &::before {
         content: "";
         background-color: $--white;

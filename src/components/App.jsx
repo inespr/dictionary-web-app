@@ -78,7 +78,6 @@ function App() {
         setData(null)
       }
       })
-      event.target.reset();
     }
   }
 
