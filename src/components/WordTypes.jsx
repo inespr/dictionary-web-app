@@ -6,8 +6,6 @@ export function WordTypes({
   phoneticsText,
   meanings,
   phoneticsAudio,
-  partOfSpeech,
-  definitions,
   sourceUrls,
 }) {
   function Audio() {
@@ -29,7 +27,7 @@ export function WordTypes({
         return (
           <>
             <div key={id} className='meanings'>
-              <p className="type">{meanings.partOfSpeech}</p>
+              <div><p className="type">{meanings.partOfSpeech}</p></div>
               <p className="meanings__tittle">Meanings</p>
               <ul>
                 {meanings.definitions.map((definitions, key) => {
@@ -47,29 +45,30 @@ export function WordTypes({
                 })}
               </ul>
               <div className="synonyms">
-                <p>Synonyms</p>
-                <div ></div>
-                {meanings.synonyms.map((synonyms, e) => {
-                  return (
-                    <>
-                      <div key={e}>
-                        <p className="synonyms">{synonyms}</p>
-                      </div>
-                    </>
-                  );
-                })}
+                {/*Hacer bien */}
+                {meanings.synonyms ? (
+                  <>
+                    <p>Synonyms</p>
+                    {meanings.synonyms.map((synonyms, e) => {
+                      return (
+                        <>
+                        <div key={e}>
+                            <p className="synonyms">{synonyms}</p>
+                          </div>
+                        </>
+                      )
+                    })}
+                  </>
+                ) : "" } 
               </div>
             </div>
           </>
         );
       })}
-      <div className="synonyms">
-        <p>{/*Añadir sinonimo SI ES QUE TIENE */}</p>
-      </div>
       <section className="footer">
         <p>Source</p>
         <div className="link">
-          <p>{/*Añadir sourceURLs */}</p>
+          <a>{sourceUrls}</a>
           <Newwindow alt="New window" />
         </div>
       </section>
