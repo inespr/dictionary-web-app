@@ -27,7 +27,7 @@ export function WordTypes({
         return (
           <>
             <div key={id} className='meanings'>
-              <div><p className="type">{meanings.partOfSpeech}</p></div>
+              <div className="p-with-line"><p className="type">{meanings.partOfSpeech}</p><div className="line"></div></div>
               <p className="meanings__tittle">Meanings</p>
               <ul>
                 {meanings.definitions.map((definitions, key) => {

@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8236392e-c445-4899-bfe9-88fe69e3ffd4/deploy-status)](https://app.netlify.com/sites/relaxed-stardust-ba00fa/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8236392e-c445-4899-bfe9-88fe69e3ffd4/deploy-status)](https://app.netlify.com/sites/dictionary-web-app-ines/deploys)
 # Brief
 
 Your challenge is to build out this dictionary web app using the [Dictionary API](https://dictionaryapi.dev/) and get it looking as close to the design as possible.

@@ -33,22 +33,20 @@ function App() {
     localStorage.setItem("Font", JSON.stringify(typefont));
     setFont(typefont)
     if(typefont == 'Sans-serif'){
-      document.documentElement.setAttribute('font', 'Sans-serif');
+      document.documentElement.setAttribute('data-font', 'Sans-serif');
     }else if(typefont == 'Serif'){
-      document.documentElement.setAttribute('font', 'Serif');
+      document.documentElement.setAttribute('data-font', 'Serif');
     }
     else{
-      document.documentElement.setAttribute('font', 'Mono');
+      document.documentElement.setAttribute('data-font', 'Mono');
     }
-
   }
 
   function ChangeLightSelector(){
     setTema(tema === 'light' ? 'dark' : 'light')
-    document.documentElement.setAttribute('tema', tema);
-    localStorage.setItem("Mode", JSON.stringify(tema))
+    document.documentElement.setAttribute('data-tema', tema);
+    localStorage.setItem("Mode", JSON.stringify(tema));
     console.log(tema)
-   
   }
 
   function CallAPI(event){
@@ -86,17 +84,17 @@ function App() {
     const localStorageFont = JSON.parse(localStorage.getItem("Font"));
     if (localStorageMode != null) {
       setTema(localStorageMode === 'light' ? 'dark' : 'light')
-      document.documentElement.setAttribute('tema', localStorageMode);
+      document.documentElement.setAttribute('data-tema', localStorageMode);
     }
     if(localStorageFont != null){
       console.log(localStorageFont)
       if(localStorageFont == 'Sans-serif'){
-        document.documentElement.setAttribute('font', 'Sans-serif');
+        document.documentElement.setAttribute('data-font', 'Sans-serif');
       }else if(localStorageFont == 'Serif'){
-        document.documentElement.setAttribute('font', 'Serif');
+        document.documentElement.setAttribute('data-font', 'Serif');
       }
       else{
-        document.documentElement.setAttribute('font', 'Mono');
+        document.documentElement.setAttribute('data-font', 'Mono');
       }
       setFont(localStorageFont);
     }
