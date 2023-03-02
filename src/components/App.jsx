@@ -10,6 +10,7 @@ function App() {
   //Estado del menu activo = true | inactivo = false
   const [tema, setTema] = useState('light');
   const [data, setData] = useState([])
+  const [error, setError] = useState(null);
 
 
   function FontMenuShow() {
@@ -55,29 +56,30 @@ function App() {
     const word = event.target.input.value;
     console.log(word);
     if(!word){
-      ErrorInput()
-      event.preventDefault();
+      setError("Whoops, can't be empty...")
+      setData(null)
     }
     else{
-      document.getElementById('massageError').classList.replace('inputError','inputError--none');
-      document.getElementById('input').classList.replace('input--error','input');
+      setError(null);
       fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+      .then((response)=>{
+        if(!response.ok){
+          throw new Error('Error')
+        }
+        return response;
+      })  
       .then((res) => res.json())
-      //get data
       .then((data) => {
-        //comprobar si existe la palabra
-        console.log("Data URL: ", data);
-        //save data into an objet
         setData(data);
-      });
+        console.log(data);
+      })
+      .catch( (error) => { if(error = 'Error'){
+        setError("Sorry pal, we couldn't find definitions for the word you were looking for.")
+        setData(null)
+      }
+      })
+      event.target.reset();
     }
-    event.target.reset();
-  }
-
-  function ErrorInput(){
-    const inputURL = document.getElementById("input");
-    inputURL.classList.replace("input", "input--error");
-    document.getElementById('massageError').classList.replace('inputError--none','inputError');
   }
 
   function getLocalStorage() {
@@ -131,10 +133,10 @@ function App() {
       </section>
       <section className="form" >
         <form onSubmit={CallAPI}>
-          <Search alt="Search" className="input-icon"/>
           <input className="input" type="text" name="input" id="input" placeholder="Search for any word..."/>
+          <Search alt="Search" className="input-icon"/>
         </form>
-        <div className="inputError--none" id="massageError">Whoops, can't be empty...</div>
+        { error != null ? (<div className="inputError">{error}</div>) : ''}
       </section>
       <section className="result">
       </section>
@@ -168,5 +170,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
