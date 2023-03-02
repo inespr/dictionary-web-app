@@ -19,7 +19,7 @@ $--mono: "Inconsolata", monospace;
 
 * {
   font-family: $--sans-serif;
-  p{
+  p {
     color: $--gray-1;
   }
 }
@@ -31,31 +31,32 @@ $--mono: "Inconsolata", monospace;
   padding: 24px;
 }
 
-[font="Sans-serif"]{
-  *:not(.--active a){
-    font-family:$--sans-serif;
+[data-font="Sans-serif"] {
+  *:not(.--active a) {
+    font-family: $--sans-serif;
   }
 }
-[font="Serif"]{
-  *:not(.--active a){
-    font-family:$--serif;
+[data-font="Serif"] {
+  *:not(.--active a) {
+    font-family: $--serif;
   }
 }
-[font="Mono"]{
-  *:not(.--active a){
-    font-family:$--mono;
+[data-font="Mono"] {
+  *:not(.--active a) {
+    font-family: $--mono;
   }
 }
 
-[tema="dark"] {
-  body, .type{
+[data-tema="dark"] {
+  body,
+  .type {
     background-color: $--back-1;
   }
   .selector,
   .menu a,
   h1,
   .input,
-  .type{
+  .type {
     color: $--white;
   }
 
@@ -63,7 +64,8 @@ $--mono: "Inconsolata", monospace;
     background-color: $--purple;
   }
   .input,
-  .menu, .input--error {
+  .menu,
+  .input--error {
     background-color: $--back-3;
   }
   .--active {
@@ -72,10 +74,10 @@ $--mono: "Inconsolata", monospace;
   button.selector {
     justify-content: flex-end;
   }
-  .moon{
-    stroke: $--purple
+  .moon {
+    stroke: $--purple;
   }
-  .footer .link a{
+  .footer .link a {
     color: $--white;
   }
 }
@@ -121,7 +123,7 @@ $--mono: "Inconsolata", monospace;
       border-radius: 15px;
       border: none;
       background-color: $--gray-1;
-      &:hover{
+      &:hover {
         cursor: pointer;
       }
       &::before {
@@ -137,7 +139,7 @@ $--mono: "Inconsolata", monospace;
     }
   }
 }
-.moon{
+.moon {
   stroke: #757575;
 }
 .menufont {
@@ -189,7 +191,7 @@ $--mono: "Inconsolata", monospace;
   justify-content: space-between;
 }
 
-form{
+form {
   display: flex;
   justify-content: flex-end;
   flex: 1 0 100%;
@@ -210,7 +212,7 @@ form{
   border-radius: 15px;
   background-color: $--gray-2;
   font-weight: bolder;
-  &--error{
+  &--error {
     display: flex;
     outline: none;
     width: 100%;
@@ -220,102 +222,101 @@ form{
     background-color: $--gray-2;
     font-weight: bolder;
     border: 2px solid red;
-
+  }
 }
-}
 
-.inputError--none{
+.inputError--none {
   display: none;
 }
 
-.inputError{
+.inputError {
   color: red;
   display: flex;
   flex-direction: column;
 }
 
 //Wordtypes
-.first__result{
+.first__result {
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
 }
 
-.word{
+.word {
   font-size: 45px;
   display: flex;
 }
 
-.phonetics{
+.phonetics {
   margin-top: -24px;
   font-size: 20px;
   color: $--purple;
 }
 
-.word_phonetics{
+.word_phonetics {
   display: flex;
   flex-direction: column;
 }
 
-.type{
+.p-with-line {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.type {
   font-weight: bolder;
   color: $--back-1;
   font-size: 18px;
   font-style: italic;
-  position: relative;
   z-index: 0;
-  
-  &::before{
-    content: "";
-    position: absolute;
-    background-color: $--gray-1;
-    height: 1px;
-    width: 100%;
-    top: 12px;
-    z-index: -1;    
-  }
-
 }
-.meaning{
+.line {
+  content: "";
+  background-color: $--gray-1;
+  height: 1px;
+  width: 100%;
+  top: 12px;
+  z-index: -1;
+}
+.meaning {
   color: $--back-4;
   display: flex;
   margin-top: auto;
 }
 
-.meanings__tittle{
+.meanings__tittle {
   margin-bottom: 2px;
 }
 
-ul{
+ul {
   display: flex;
   flex-direction: column;
   padding-inline-start: 2px;
 }
-li{
-    display: flex;
-    list-style: none;
-    gap: 10px;
+li {
+  display: flex;
+  list-style: none;
+  gap: 10px;
 }
-li::before{
-    content: "\2022";
-    color: $--purple;
+li::before {
+  content: "\2022";
+  color: $--purple;
 }
 
-.meanings{
+.meanings {
   display: flex;
   flex-direction: column;
-  
 }
 
-.synonyms{
+.synonyms {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 15px;
 }
 
-.synonyms{
+.synonyms {
   display: flex;
   gap: 10px;
   color: $--purple;
@@ -323,22 +324,22 @@ li::before{
   flex-wrap: wrap;
 }
 
-.footer{
+.footer {
   font-size: 12px;
   display: flex;
   gap: 10px;
-  .link{
+  .link {
     gap: 10px;
     display: flex;
     align-items: center;
-    a{
-      text-decoration:underline;
+    a {
+      text-decoration: underline;
     }
   }
 }
 
-@media screen and (min-width: 736px){
-  .dictionary{
+@media screen and (min-width: 736px) {
+  .dictionary {
     max-width: 574px;
   }
 }
