@@ -121,6 +121,9 @@ $--mono: "Inconsolata", monospace;
       border-radius: 15px;
       border: none;
       background-color: $--gray-1;
+      &:hover{
+        cursor: pointer;
+      }
       &::before {
         content: "";
         background-color: $--white;
@@ -182,7 +185,7 @@ $--mono: "Inconsolata", monospace;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-
+  gap: 10px;
   justify-content: space-between;
 }
 
