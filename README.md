@@ -17,6 +17,16 @@ npm install
 ```shell
 npm run dev
 ```
+### Optional: Install the PWA on Your Device
+One of the neat benefits of using a PWA is that you can "install" the app on your device, providing an experience similar to a native application. Once the app is installed on your device you can view the PWA in its own window and pin it to your desktop or taskbar.
+> * How download?
+
+![preview](/design/INSTALLPWA.jpg)
+
+> * The view 
+
+![preview](/design/WINDOWPWA.jpg)
+
 #### Proyect from: [Dictionary web App](https://www.frontendmentor.io/challenges/dictionary-web-app-h5wwnyuKFL).
 > * Desktop preview:
 
